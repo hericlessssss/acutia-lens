@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Acutia Photo Premium Palette */
+
+    /* Backgrounds */
+    /* Acutia Photo Premium Palette - Revised (Green/Gold) */
+
+    /* Backgrounds - Shifted from Blue (213) to Deep Green (155) */
+    --bg: 155 30% 6%;
+    /* #0B140F */
+    --surface-1: 155 25% 10%;
+    /* #131F19 */
+    --surface-2: 155 25% 14%;
+    /* #1B2921 */
+
+    /* Borders */
+    --border: 155 20% 18%;
+    /* #252E29 */
+
+    /* Typography */
+    --text-1: 150 15% 96%;
+    /* #F3F8F5 */
+    --text-2: 150 10% 75%;
+    /* #BFCBC5 */
+    --text-3: 150 8% 55%;
+    /* #88928D */
+
+    /* Primary (Green) */
+    --primary: 142 76% 36%;
+    /* #16A34A */
+    --primary-hover: 142 76% 29%;
+    /* #12823C */
+    --primary-active: 142 76% 24%;
+    /* #0F6A31 */
+
+    /* Accent (Gold) */
+    --gold: 45 56% 50%;
+    /* #C7A43A */
+    --gold-hover: 45 58% 44%;
+    /* #B08F2F */
+
+    /* States */
+    --focus: 142 70% 50%;
+    /* Green Focus */
+    --success: 142 71% 45%;
+    /* #22C55E */
+    --warning: 38 92% 50%;
+    /* #F59E0B */
+    --error: 0 84% 60%;
+    /* #EF4444 */
+    --info: 199 95% 60%;
+    /* #38BDF8 */
+
+    /* Mapping to Shadcn/Tailwind defaults */
+    --background: var(--bg);
+    --foreground: var(--text-1);
+
+    --card: var(--surface-1);
+    --card-foreground: var(--text-1);
+
+    --popover: var(--surface-2);
+    --popover-foreground: var(--text-1);
+
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: var(--surface-2);
+    --secondary-foreground: var(--text-1);
+
+    --muted: var(--surface-2);
+    --muted-foreground: var(--text-2);
+
+    --accent: var(--gold);
+    --accent-foreground: var(--bg);
+
+    --destructive: var(--error);
+    --destructive-foreground: var(--text-1);
+
+    --input: var(--border);
+    --ring: var(--focus);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: var(--surface-1);
+    --sidebar-foreground: var(--text-1);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--surface-2);
+    --sidebar-accent-foreground: var(--text-1);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--focus);
+
+    /* Custom Gradients & Effects */
+    --cyan-glow: var(--primary);
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent;
+    /* Changed from Cyan to Green Gradient */
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(142, 80%, 70%));
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(43, 85%, 55%), hsl(43, 90%, 70%));
+  }
+
+  .bg-gradient-dark {
+    background: linear-gradient(180deg, hsl(var(--bg)) 0%, hsl(var(--surface-1)) 100%);
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(145deg, hsl(var(--surface-1)) 0%, hsl(var(--bg)) 100%);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.1);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px hsl(43, 85%, 55% / 0.3), 0 0 60px hsl(43, 85%, 55% / 0.1);
+  }
+
+  .watermark-overlay {
+    position: relative;
+  }
+
+  .watermark-overlay::after {
+    content: 'ACUTIA LENS';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    color: hsl(0, 0%, 100% / 0.25);
+    letter-spacing: 0.2em;
+    pointer-events: none;
+    transform: rotate(-25deg);
+  }
+
+  .bokeh-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bokeh-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, hsl(190, 95%, 45% / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 60%, hsl(43, 85%, 55% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, hsl(190, 100%, 60% / 0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+}
