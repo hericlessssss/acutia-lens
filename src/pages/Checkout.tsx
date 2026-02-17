@@ -153,11 +153,11 @@ const Checkout = () => {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between text-muted-foreground">
                 <span>Total dos itens</span>
-                <span>{formatCurrency(subtotal)}</span>
+                <span>{formatCurrency(subtotal / 100)}</span>
               </div>
               <div className="flex justify-between text-muted-foreground">
                 <span>Taxa de serviço</span>
-                <span>{formatCurrency(platformFee)}</span>
+                <span>{formatCurrency(platformFee / 100)}</span>
               </div>
             </div>
 
@@ -165,7 +165,7 @@ const Checkout = () => {
 
             <div className="flex justify-between items-center">
               <span className="text-lg font-bold">Total a pagar</span>
-              <span className="font-display font-bold text-2xl text-primary">{formatCurrency(total)}</span>
+              <span className="font-display font-bold text-2xl text-primary">{formatCurrency(total / 100)}</span>
             </div>
 
             <Button
@@ -181,7 +181,7 @@ const Checkout = () => {
               ) : (
                 <>
                   <Lock className="mr-2 h-5 w-5" />
-                  Pagar {formatCurrency(total)}
+                  Pagar {formatCurrency(total / 100)}
                 </>
               )}
             </Button>

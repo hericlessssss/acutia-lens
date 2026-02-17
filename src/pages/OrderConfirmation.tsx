@@ -82,7 +82,7 @@ const OrderConfirmation = () => {
 
                 <div>
                   <span className="text-muted-foreground block text-xs uppercase tracking-wider mb-1">Total</span>
-                  <span className="font-display font-bold text-xl text-primary">{formatCurrency(order.total)}</span>
+                  <span className="font-display font-bold text-xl text-primary">{formatCurrency(order.total / 100)}</span>
                 </div>
               </div>
             </div>

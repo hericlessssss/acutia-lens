@@ -74,7 +74,7 @@ const Cart = () => {
                   </div>
 
                   <div className="flex items-center justify-between mt-2">
-                    <p className="font-display font-bold text-lg text-primary">{formatCurrency(item.photo.priceCents)}</p>
+                    <p className="font-display font-bold text-lg text-primary">{formatCurrency(item.photo.priceCents / 100)}</p>
                     <Button
                       variant="ghost"
                       size="sm"
@@ -97,11 +97,11 @@ const Cart = () => {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between text-muted-foreground">
                   <span>Subtotal ({items.length} itens)</span>
-                  <span>{formatCurrency(subtotal)}</span>
+                  <span>{formatCurrency(subtotal / 100)}</span>
                 </div>
                 <div className="flex justify-between text-muted-foreground">
                   <span>{content.cart.fee}</span>
-                  <span>{formatCurrency(platformFee)}</span>
+                  <span>{formatCurrency(platformFee / 100)}</span>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ const Cart = () => {
 
               <div className="flex justify-between items-end">
                 <span className="font-medium text-foreground">{content.cart.total}</span>
-                <span className="font-display font-bold text-2xl text-primary">{formatCurrency(total)}</span>
+                <span className="font-display font-bold text-2xl text-primary">{formatCurrency(total / 100)}</span>
               </div>
 
               <Button asChild className="w-full h-12 text-base font-bold rounded-xl shadow-lg shadow-primary/20 glow-cyan mt-2">
